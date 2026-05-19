@@ -105,9 +105,9 @@ O(V + E)
 
 | Graph Size   | BFS Time (ns) | DFS Time (ns) |
 |--------------|---------------|---------------|
-| 10 Vertices  | 120000        | 98000         |
-| 30 Vertices  | 220000        | 185000        |
-| 100 Vertices | 510000        | 460000        |
+| 10 Vertices  | 860500        | 266166        |
+| 30 Vertices  | 542542        | 524208        |
+| 100 Vertices | 1474917       | 931084        |
 
 *Results may vary depending on computer performance.*
 
