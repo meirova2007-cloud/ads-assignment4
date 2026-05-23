@@ -1,6 +1,32 @@
 # Bonus Task — Dijkstra’s Algorithm
-
 The project was extended with Dijkstra’s Algorithm for shortest path calculation.
+
+---
+
+# About Dijkstra’s Algorithm
+Dijkstra’s Algorithm is a shortest path algorithm used in weighted graphs. It finds the minimum distance from one starting vertex to all other vertices in the graph.
+
+The algorithm works by always selecting the unvisited vertex with the smallest known distance and updating distances to its neighboring vertices.
+
+Unlike BFS and DFS, Dijkstra takes edge weights into account. This makes it useful for problems where different paths have different costs or distances.
+
+Example applications:
+- GPS navigation systems
+- Road maps
+- Network routing
+- Transportation systems
+
+The algorithm works only with non-negative edge weights.
+
+---
+## Complexity
+Time Complexity:
+O(V²)
+
+Where:
+- V = number of vertices
+
+The implementation uses arrays and loops instead of a priority queue.
 
 ---
 
@@ -17,17 +43,6 @@ The project was extended with Dijkstra’s Algorithm for shortest path calculati
 - Modified graph representation
 - Implemented dijkstra(int start)
 - Added weighted graph examples
-
----
-
-## Complexity
-Time Complexity:
-O(V²)
-
-Where:
-- V = number of vertices
-
-The implementation uses arrays and loops instead of a priority queue.
 
 ---
 
