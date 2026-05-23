@@ -1,50 +1,224 @@
-# Bonus Task — Dijkstra’s Algorithm
-The project was extended with Dijkstra’s Algorithm for shortest path calculation.
+# Bonus Task — Dijkstra’s Algorithm Implementation
+## Overview
+As a bonus extension to the original graph traversal project, Dijkstra’s Algorithm was implemented to calculate the shortest paths in a weighted graph.
+
+This addition demonstrates how graph traversal concepts can be extended into more advanced graph algorithms used in real-world applications.
 
 ---
 
-# About Dijkstra’s Algorithm
-Dijkstra’s Algorithm is a shortest path algorithm used in weighted graphs. It finds the minimum distance from one starting vertex to all other vertices in the graph.
+# What is Dijkstra’s Algorithm?
 
-The algorithm works by always selecting the unvisited vertex with the smallest known distance and updating distances to its neighboring vertices.
+Dijkstra’s Algorithm is the shortest path algorithm used for weighted graphs with non-negative edge weights.
 
-Unlike BFS and DFS, Dijkstra takes edge weights into account. This makes it useful for problems where different paths have different costs or distances.
+The algorithm finds:
+- the minimum distance
+- from one starting vertex
+- to all other vertices in the graph
 
-Example applications:
+Unlike BFS and DFS, Dijkstra considers edge weights when choosing the best path.
+
+---
+
+# Real-World Applications
+
+Dijkstra’s Algorithm is commonly used in:
 - GPS navigation systems
-- Road maps
-- Network routing
-- Transportation systems
-
-The algorithm works only with non-negative edge weights.
+- Google Maps
+- transportation networks
+- internet routing
+- network optimization
 
 ---
-## Complexity
-Time Complexity:
-O(V²)
+
+# Graph Changes for Bonus Task
+
+## 1. Weighted Edges
+
+The `Edge` class was modified to include a `weight` field.
+
+### Added field:
+
+```java
+private int weight;
+```
+
+This allows every edge to store:
+- distance
+- cost
+- path weight
+
+---
+
+## 2. Updated Adjacency List
+
+The graph structure was upgraded from a simple adjacency list to a weighted adjacency list.
+
+### Before:
+
+```java
+Map<Integer, List<Integer>>
+```
+
+### After:
+
+```java
+Map<Integer, List<Neighbor>>
+```
+
+The new structure stores:
+- connected vertex
+- edge weight
+
+This change was necessary because Dijkstra’s Algorithm requires weighted edges.
+
+---
+
+## 3. Neighbor Helper Class
+
+A helper class named `Neighbor` was added inside `Graph.java`.
+
+### Purpose
+
+The class stores:
+- adjacent vertex
+- edge weight
+
+### Structure
+
+```java
+class Neighbor {
+
+    int vertex;
+    int weight;
+
+    public Neighbor(int vertex, int weight) {
+        this.vertex = vertex;
+        this.weight = weight;
+    }
+}
+```
+
+This class simplifies weighted graph representation inside the adjacency list.
+
+---
+
+# Dijkstra Algorithm Implementation
+
+The following method was implemented:
+
+```java
+void dijkstra(int start)
+```
+
+The method:
+- receives a starting vertex
+- calculates shortest distances
+- prints shortest path values for all reachable vertices
+
+---
+
+# How the Algorithm Works
+
+The algorithm follows these steps:
+
+1. Set all distances to infinity
+2. Set starting vertex distance to 0
+3. Find the unvisited vertex with minimum distance
+4. Mark the vertex as visited
+5. Update distances of neighboring vertices
+6. Repeat until all reachable vertices are processed
+
+---
+
+# Example
+
+## Weighted Graph
+
+```text
+0 --4-- 1
+0 --2-- 2
+1 --5-- 3
+2 --8-- 3
+```
+
+## Starting Vertex
+
+```text
+0
+```
+
+## Output
+
+```text
+To vertex 0 = 0
+To vertex 1 = 4
+To vertex 2 = 2
+To vertex 3 = 9
+```
+
+Explanation:
+- shortest path from 0 to 1 = 4
+- shortest path from 0 to 2 = 2
+- shortest path from 0 to 3 = 9
+
+---
+
+# Data Structures Used
+
+The implementation uses:
+- weighted adjacency list
+- arrays
+- loops
+- visited array
+
+### Arrays Used
+
+```java
+int[] distance
+boolean[] visited
+```
+
+### distance[]
+
+Stores the shortest known distance from the starting vertex.
+
+### visited[]
+
+Tracks which vertices were already processed.
+
+---
+
+# Complexity Analysis
+
+The implementation uses loops instead of a priority queue.
+
+## Time Complexity
+
+\[
+O(V^2)
+\]
 
 Where:
-- V = number of vertices
+- `V` = number of vertices
 
-The implementation uses arrays and loops instead of a priority queue.
-
----
-
-## Additional Features
-- Support for weighted edges
-- Updated adjacency list with weights
-- Shortest path calculation from starting vertex
-- Distance output for all vertices
+The algorithm repeatedly searches for the minimum-distance vertex using loops, which increases overall complexity.
 
 ---
 
-## Changes Made
-- Added weight field to Edge class
-- Modified graph representation
-- Implemented dijkstra(int start)
-- Added weighted graph examples
+# Conclusion
 
----
+The bonus implementation successfully added:
+- weighted graph support
+- Dijkstra shortest path algorithm
+- weighted adjacency list representation
+- shortest distance calculations
+
+The final project now demonstrates:
+- BFS traversal
+- DFS traversal
+- shortest path analysis using Dijkstra’s Algorithm
+
+This significantly improved the functionality and complexity of the original graph traversal system.
 
 # Assignment 4 — Graph Traversal and Representation System
 Represents a connection between two vertices.
