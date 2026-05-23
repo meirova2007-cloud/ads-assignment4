@@ -220,6 +220,8 @@ The final project now demonstrates:
 
 This significantly improved the functionality and complexity of the original graph traversal system.
 
+---
+
 # Assignment 4 — Graph Traversal and Representation System
 Represents a connection between two vertices.
 
