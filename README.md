@@ -1,3 +1,36 @@
+# Bonus Task — Dijkstra’s Algorithm
+
+The project was extended with Dijkstra’s Algorithm for shortest path calculation.
+
+---
+
+## Additional Features
+- Support for weighted edges
+- Updated adjacency list with weights
+- Shortest path calculation from starting vertex
+- Distance output for all vertices
+
+---
+
+## Changes Made
+- Added weight field to Edge class
+- Modified graph representation
+- Implemented dijkstra(int start)
+- Added weighted graph examples
+
+---
+
+## Complexity
+Time Complexity:
+O(V²)
+
+Where:
+- V = number of vertices
+
+The implementation uses arrays and loops instead of a priority queue.
+
+---
+
 # Assignment 4 — Graph Traversal and Representation System
 Represents a connection between two vertices.
 

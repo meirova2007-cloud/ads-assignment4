@@ -7,10 +7,28 @@ public class Experiment {
         long dfsStart = System.nanoTime();
         g.dfs(0);
         long dfsEnd = System.nanoTime();
+        long dijkstraStart = System.nanoTime();
+        g.dijkstra(0);
+        long dijkstraEnd = System.nanoTime();
         long bfsTime = bfsEnd - bfsStart;
         long dfsTime = dfsEnd - dfsStart;
-        System.out.println("BFS Time: " + bfsTime + " ns");
-        System.out.println("DFS Time: " + dfsTime + " ns");
+        long dijkstraTime =
+                dijkstraEnd - dijkstraStart;
+        System.out.println(
+                "\nBFS Time: "
+                        + bfsTime
+                        + " ns"
+        );
+        System.out.println(
+                "DFS Time: "
+                        + dfsTime
+                        + " ns"
+        );
+        System.out.println(
+                "Dijkstra Time: "
+                        + dijkstraTime
+                        + " ns"
+        );
     }
     public Graph createGraph(int size) {
         Graph graph = new Graph();
@@ -21,8 +39,14 @@ public class Experiment {
         for (int i = 0; i < size * 2; i++) {
             int from = random.nextInt(size);
             int to = random.nextInt(size);
+            int weight =
+                    random.nextInt(10) + 1;
             if (from != to) {
-                graph.addEdge(from, to);
+                graph.addEdge(
+                        from,
+                        to,
+                        weight
+                );
             }
         }
         return graph;
@@ -30,10 +54,17 @@ public class Experiment {
     public void runMultipleTests() {
         int[] sizes = {10, 30, 100};
         for (int size : sizes) {
-            System.out.println("\n============================");
-            System.out.println("Graph Size: " + size);
-            System.out.println("============================");
-            Graph graph = createGraph(size);
+            System.out.println(
+                    "\n=========================="
+            );
+            System.out.println(
+                    "Graph Size: " + size
+            );
+            System.out.println(
+                    "=========================="
+            );
+            Graph graph =
+                    createGraph(size);
             if (size == 10) {
                 graph.printGraph();
             }
@@ -41,6 +72,8 @@ public class Experiment {
         }
     }
     public void printResults() {
-        System.out.println("\nPerformance testing completed.");
+        System.out.println(
+                "\nPerformance testing completed."
+        );
     }
 }
